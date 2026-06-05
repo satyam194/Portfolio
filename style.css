@@ -842,3 +842,15 @@ body { display: flex; }
     .stat-row { grid-template-columns: repeat(2, 1fr); }
     .chip { font-size: 12px; padding: 8px 13px; }
 }
+
+@media (max-width: 900px) {
+
+    .sidebar {
+        transform: translateX(-100%) !important;
+    }
+
+    .sidebar.open {
+        transform: translateX(0) !important;
+    }
+
+}
