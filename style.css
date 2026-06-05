@@ -326,7 +326,7 @@ body { display: flex; }
     height: var(--app-height);
     display: flex;
     flex-direction: column;
-    overflow: auto;
+    overflow-y: auto;
     position: relative;
 }
 
