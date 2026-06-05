@@ -1,0 +1,184 @@
+PERSONAL INFORMATION
+
+Name: Satyam Kushwah
+
+Contact Information:
+
+* Phone: +91 8719053010
+* Email: [satyam.kushwah1904@gmail.com](mailto:satyam.kushwah1904@gmail.com)
+* LinkedIn: https://www.linkedin.com/in/satyam-kushwah-005265246/
+
+---
+
+## EDUCATION
+
+Indian Institute of Technology (ISM), Dhanbad
+Bachelor of Technology in Chemical Engineering
+
+Duration: Aug 2021 – May 2025
+Location: Dhanbad, Jharkhand
+
+---
+
+## WORK EXPERIENCE
+
+1. American Express
+   Role: Data Science – Credit Risk
+   Duration: Sept 2025 – May 2026
+
+Responsibilities and Achievements:
+
+* Engineered an automated case review tool and vendor model tracking tool for US and international markets, reducing manual effort by over 50% and supporting analysis of high-volume cases monthly.
+* Reviewed multiple high-balance ($30Mn+) risk cases and delivered actionable insights to enhance model interpretability using SHAP-based explanations, Bureau Information, and transaction-level analysis.
+* Identified early model drift across Gini, accuracy, and stability metrics; proposed targeted recalibration strategies contributing to a 5% performance improvement.
+* Led CDIT tracking using 10-day rolling averages across max, min, mean, median, and missing% metrics (0% threshold); generated alerts on control limit breaches and performed RCA to determine acceptance or rejection.
+
+---
+
+2. mCaffeine
+   Role: Data Analyst and Automation Intern
+   Duration: May 2025 – Aug 2025
+
+Responsibilities and Achievements:
+
+* Created a real-time Power BI dashboard analysing 900K+ orders across multiple channels, strengthening regional utilisation tracking and enabling faster, data-driven operational and strategic decisions.
+* Improved delivery efficiency by 4.6% by identifying regional performance gaps, benchmarking logistics KPIs, and recommending targeted process optimisations to enhance turnaround time and resource allocation.
+* Designed and deployed an internal order fulfillment dashboard, eliminating 70%+ manual reporting overhead through end-to-end data integration, transformation, and real-time visualization pipelines.
+* Built a master inventory framework with 15+ structured attributes, centralising inventory planning processes and reducing product listing errors by 30%, improving catalogue accuracy and supply visibility.
+
+---
+
+3. Drifko
+   Role: Data Analyst and Automation Intern
+   Duration: May 2024 – Aug 2024
+
+Responsibilities and Achievements:
+
+* Worked on Nyayavivaka, a legal consultancy chatbot, to fine-tune the model aimed to provide instant legal advice.
+* Strategically generated synthetic data with the Gemini API and fine-tuned the large language model.
+* Feature engineered and collected 10,000+ data points from multiple websites using BeautifulSoup and Selenium.
+* Achieved a ROUGE-L F1 score of 0.67 with the fine-tuned dataset, planned to roll out in the next production version.
+
+---
+
+## PROJECTS
+
+1. Financial Anomaly Detection with LLM Integration
+
+Project Overview:
+Built a real-time fraud detection system on 389K transactions integrating machine learning and LLM-powered case narration.
+
+Key Contributions:
+
+* Trained Random Forest and Isolation Forest models on 23 engineered features including Job of Card Holder, Merchant Risk, Distance, and Declines.
+* Integrated a GPT-4o-mini pipeline to automatically generate structured analyst case summaries for flagged transactions.
+* Achieved 97% accuracy and 0.98 weighted F1 score across 389K transactions.
+* Documented precision-recall tradeoffs on a 97:3 imbalanced dataset and proposed threshold tuning and SMOTE-based improvements to increase fraud-class recall beyond 15%.
+
+---
+
+2. Article Tagging
+
+Project Overview:
+Developed a machine learning solution to classify multiple tags associated with diverse research article topics.
+
+Key Contributions:
+
+* Built an NLP-based tag prediction model for 25,000+ research articles.
+* Implemented Logistic Regression and Linear SVC with a One-vs-Rest Classifier.
+* Performed feature engineering using TF-IDF Vectorizer to improve interpretability and predictive performance.
+* Achieved a Jaccard Similarity Coefficient of 80.45% using the Linear SVC model.
+
+---
+
+3. Time Series Analysis
+
+Project Overview:
+Implemented forecasting models to predict the most effective promotional channel for Health Care Practitioners (HCPs).
+
+Key Contributions:
+
+* Applied ARIMA-based forecasting techniques on time-series data.
+* Predicted optimal promotional channels while satisfying business constraints and maximizing prescription outcomes.
+* Achieved 85% prediction accuracy.
+* Secured Rank 20 among 500 participants.
+
+---
+
+4. Marico Ltd.
+
+Project Overview:
+Analyzed customer and product data to support strategic expansion decisions in the U.S. hair care market.
+
+Key Contributions:
+
+* Analyzed customer data across 1,000+ SKUs and 50+ Pomade brands.
+* Automated product tagging using Python based on ingredients, benefits, and claims.
+* Enhanced catalog organization and accessibility.
+* Presented data-driven recommendations for launching existing products into new geographic markets.
+
+---
+
+## ACHIEVEMENTS
+
+* Cleared JEE Mains 2021 and JEE Advanced 2021 by ranking within the top 1%.
+* Achieved a Top 50 rank in the Meesho Dice Competition in the Software domain.
+* Ranked in the top 0.01% in the Walmart SparkPlug Competition and earned an internship opportunity with Walmart.
+* Excelled in the Doraemon Den Bootcamp for Product Management with outstanding performance.
+* Secured Rank 20 out of 500 entries in the Kaggle KDSH Data Solution Competition.
+* Awarded the MMVY Scholarship (Top 5%) by the Government of Madhya Pradesh for academic excellence in Class 12 and JEE examinations.
+
+---
+
+## TECHNICAL SKILLS
+
+Programming Languages:
+
+* Python
+* SQL
+* SAS
+* C
+* C++
+
+Data Analysis and Machine Learning:
+
+* Pandas
+* NumPy
+* Scikit-learn
+* TensorFlow
+
+Data Visualization:
+
+* Power BI
+* Tableau
+* Excel
+
+Other Tools and Technologies:
+
+* MATLAB
+* HTML
+* CSS
+* JavaScript
+
+---
+
+## LEADERSHIP AND SOCIAL ENGAGEMENTS
+
+1. Sponsorship Team
+   Organization: Srijan '23, IIT (ISM) Dhanbad
+   Role: Organizer
+
+2. Turbulence '23
+   Organization: Annual Chemical Engineering Symposium
+   Role: Design Team Head
+
+3. Chemical Engineering Society, IIT (ISM) Dhanbad
+   Role: Graphic Designer and Design & Tech Team Lead
+
+4. Lights Camera ISM Club
+   Role: Club Member
+   Activities:
+
+* Videography
+* Sound Designing
+* Video Editing
