@@ -286,11 +286,17 @@ async function callGroqAPI(question) {
 }
 
 function setAppHeight() {
+    const h = window.visualViewport
+        ? window.visualViewport.height
+        : window.innerHeight;
     document.documentElement.style.setProperty(
-        '--app-height',
-        `${window.innerHeight}px`
+        '--app-height', `${h}px`
     );
 }
+
+window.visualViewport?.addEventListener('resize', setAppHeight);
+window.addEventListener('resize', setAppHeight);
+setAppHeight();
 
 window.addEventListener('resize', setAppHeight);
 setAppHeight();

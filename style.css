@@ -149,6 +149,7 @@ body { display: flex; }
 .sidebar {
     width: var(--sidebar-w);
     min-width: var(--sidebar-w);
+    height: 100dvh;
     height: var(--app-height);
     background: var(--sidebar-bg);
     border-right: 1px solid var(--border);
@@ -323,6 +324,7 @@ body { display: flex; }
 
 .main {
     flex: 1;
+    height: 100dvh;
     height: var(--app-height);
     display: flex;
     flex-direction: column;
@@ -753,6 +755,14 @@ body { display: flex; }
     padding: 10px 10px 10px 16px;
     transition: border-color 0.2s;
     gap: 10px;
+}
+
+.input-area {
+    padding-bottom: max(20px, env(safe-area-inset-bottom));
+}
+
+.sidebar {
+    padding-bottom: max(24px, env(safe-area-inset-bottom));
 }
 
 .search-box:focus-within {
