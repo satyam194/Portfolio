@@ -76,11 +76,11 @@ body.light-mode .msg-row.ai .msg-bubble:hover {
 }
 
 html, body {
-    height: 100%;
+    main-height: 100%;
     font-family: var(--font-body);
     background: var(--bg);
     color: var(--text);
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 /* ===========================
