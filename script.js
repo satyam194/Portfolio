@@ -264,7 +264,7 @@ function scrollBottom() {
 async function callGroqAPI(question) {
 
     const response = await fetch(
-        "http://localhost:5000/chat",
+        "https://satyam-ai-backend.onrender.com/",
         {
             method: "POST",
             headers: {
