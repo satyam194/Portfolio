@@ -838,7 +838,7 @@ body { display: flex; }
 
     .main { width: 100%; }
 
-    .landing { padding: max(100px, calc(env(safe-area-inset-top) + 56px)) 20px 0; }
+    .landing { padding: max(120px, calc(env(safe-area-inset-top) + 56px)) 20px 0; }
 
     .stat-row { grid-template-columns: repeat(2, 1fr); }
 
