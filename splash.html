@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Satyam AI - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="splash.css">
+</head>
+<body>
+    <!-- THEME TOGGLE -->
+    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Toggle dark/light mode">
+        <span class="theme-icon">🌙</span>
+    </button>
+
+    <!-- TRANSITION OVERLAY -->
+    <div class="transition-overlay" id="transitionOverlay"></div>
+
+    <!-- SPLASH PAGE -->
+    <div class="splash-page" id="splashPage">
+        <div class="splash-container">
+            <div class="splash-content">
+                <div class="splash-logo">SK</div>
+                <h1 class="splash-title">Satyam Kushwah</h1>
+                <p class="splash-subtitle">Data Scientist · ML Engineer</p>
+                <div class="splash-line"></div>
+                <p class="splash-desc">Exploring AI-driven solutions and data insights</p>
+                <button class="splash-btn" onclick="enterPortfolio()">Let's Dig In →</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="splash.js"></script>
+</body>
+</html>

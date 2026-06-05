@@ -1,0 +1,15 @@
+{
+  "name": "portfolio",
+  "scripts": {
+    "dev": "concurrently \"npx http-server -p 8080\" \"npm --prefix backend start\"",
+    "frontend": "npx http-server -p 8080",
+    "backend": "npm --prefix backend start"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "http-server": "^14.1.1"
+  },
+  "dependencies": {
+    "groq-sdk": "^1.2.1"
+  }
+}
