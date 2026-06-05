@@ -847,6 +847,21 @@ body { display: flex; }
     .input-area { padding: 12px 16px 16px; }
 }
 
+
+#sidebarOverlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 99;
+}
+
+@media (max-width: 900px) {
+    #sidebarOverlay.active {
+        display: block;
+    }
+}
+
+
 @media (max-width: 540px) {
     .landing-title { font-size: 36px; }
     .stat-row { grid-template-columns: repeat(2, 1fr); }

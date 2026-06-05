@@ -285,6 +285,11 @@ async function callGroqAPI(question) {
     return formatAPIResponse(data.answer);
 }
 
+function toggleSidebar() {
+    document.getElementById('sidebar').classList.toggle('open');
+    document.getElementById('sidebarOverlay').classList.toggle('active');
+}
+
 function setAppHeight() {
     const h = window.visualViewport
         ? window.visualViewport.height
@@ -500,6 +505,8 @@ async function sendMessage() {
 ========================================== */
 
 function loadSection(section) {
+    document.getElementById('sidebar').classList.remove('open');
+    document.getElementById('sidebarOverlay').classList.remove('active');
     startChat();
     const label = section.charAt(0).toUpperCase() + section.slice(1);
     addUserMessage(`Tell me about: ${label}`);
@@ -540,9 +547,6 @@ userInput.addEventListener('input', autoResize);
    SIDEBAR TOGGLE (mobile)
 ========================================== */
 
-function toggleSidebar() {
-    document.getElementById('sidebar').classList.toggle('open');
-}
 
 /* ==========================================
    KEYBOARD
