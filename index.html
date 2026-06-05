@@ -3,137 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Satyam's AI</title>
+    <title>Satyam AI - Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="splash.css">
 </head>
 <body>
-
-<!-- SIDEBAR -->
-<div class="sidebar" id="sidebar">
-    <div class="sidebar-header">
-        <div class="logo-mark">SK</div>
-        <div>
-            <h2>Satyam's AI</h2>
-            <p>Data Scientist Portfolio</p>
-        </div>
-    </div>
-
-    <div class="sidebar-section">
-        <h4>Projects</h4>
-        <button class="sidebar-item" onclick="loadSection('Financial Anomaly Detection')">
-            <span class="item-icon">◈</span> Financial Anomaly Detection
-        </button>
-        <button class="sidebar-item" onclick="loadSection('Credit Risk Monitoring')">
-            <span class="item-icon">◈</span> Credit Risk Monitoring
-        </button>
-        <button class="sidebar-item" onclick="loadSection('Power BI Dashboard')">
-            <span class="item-icon">◈</span> Power BI Dashboard
-        </button>
-    </div>
-
-    <div class="sidebar-section">
-        <h4>Experience</h4>
-        <button class="sidebar-item" onclick="loadSection('American Express')">
-            <span class="item-icon">◉</span> American Express
-        </button>
-        <button class="sidebar-item" onclick="loadSection('mCaffeine')">
-            <span class="item-icon">◉</span> mCaffeine
-        </button>
-    </div>
-
-    <div class="sidebar-section">
-        <h4>Background</h4>
-        <button class="sidebar-item" onclick="loadSection('Education')">
-            <span class="item-icon">◌</span> IIT ISM Dhanbad
-        </button>
-        <button class="sidebar-item" onclick="loadSection('Achievements')">
-            <span class="item-icon">◌</span> Awards & Rankings
-        </button>
-        <button class="sidebar-item" onclick="loadSection('Skills')">
-            <span class="item-icon">◌</span> Technical Skills
-        </button>
-        <button class="sidebar-item" onclick="loadSection('Contact Information')">
-            <span class="item-icon">◌</span> Contact Information
-        </button>
-    </div>
-
-    <div class="sidebar-footer">
-        <a href="https://drive.google.com/file/d/1HyC0b_IoHrjHQMadWs0owNGYssg9Tkdk/view?usp=sharing" target="_blank" class="sidebar-link">↗ Resume</a>
-        <a href="https://www.linkedin.com/in/satyam-kushwah-005265246/" target="_blank" class="sidebar-link">↗ LinkedIn</a>
-    </div>
-</div>
-
-<!-- HAMBURGER -->
-<button class="hamburger" id="hamburger" onclick="toggleSidebar()">☰</button>
-
-<!-- MAIN -->
-<div class="main" id="main">
-    <!-- TRANSITION OVERLAY -->
-    <div class="transition-overlay" id="transitionOverlay"></div>
-
     <!-- THEME TOGGLE -->
     <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Toggle dark/light mode">
         <span class="theme-icon">🌙</span>
     </button>
 
-    <!-- LANDING STATE -->
-    <div class="landing" id="landing">
-        <div class="landing-inner">
-            <div class="greeting-tag">Available for opportunities</div>
-            <h1 class="landing-title">Hi, I'm <span class="name-highlight">Satyam</span></h1>
-            <p class="landing-sub">Data Scientist · ML Engineer · IIT ISM Dhanbad<br>Ask me anything about my work at American Express, projects, or skills.</p>
+    <!-- TRANSITION OVERLAY -->
+    <div class="transition-overlay" id="transitionOverlay"></div>
 
-            <div class="stat-row">
-                <div class="stat">
-                    <span class="stat-num">Automated Tools</span>
-                    <span class="stat-label">Case Review & Vendor Model</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-num">$30M+</span>
-                    <span class="stat-label">Risk Cases Reviewed</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-num">LLM Integration</span>
-                    <span class="stat-label">Financial anomaly detection</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-num">Top 1%</span>
-                    <span class="stat-label">JEE Mains & Advanced</span>
-                </div>
-            </div>
-
-            <div class="suggestions" id="suggestions">
-                <button class="chip" onclick="askQuestion('Tell me about your American Express experience')">American Express Experience →</button>
-                <button class="chip" onclick="askQuestion('Tell me about your mCaffeine experience')">mCaffeine Experience →</button>
-                <button class="chip" onclick="askQuestion('Tell me about your contact information')">Contact Information →</button>
-                <button class="chip" onclick="askQuestion('Explain the fraud detection project')">Fraud detection project →</button>
-                <button class="chip" onclick="askQuestion('What are your technical skills?')">Technical skills →</button>
-                <button class="chip" onclick="askQuestion('What achievements do you have?')">Achievements →</button>
+    <!-- SPLASH PAGE -->
+    <div class="splash-page" id="splashPage">
+        <div class="splash-container">
+            <div class="splash-content">
+                <div class="splash-logo">SK</div>
+                <h1 class="splash-title">Satyam Kushwah</h1>
+                <p class="splash-subtitle">Data Scientist · ML Engineer</p>
+                <div class="splash-line"></div>
+                <p class="splash-desc">Exploring AI-driven solutions and data insights</p>
+                <button class="splash-btn" onclick="enterPortfolio()">Let's Dig In →</button>
             </div>
         </div>
     </div>
 
-    <!-- CHAT AREA -->
-    <div id="chat-container"></div>
-
-    <!-- INPUT -->
-    <div class="input-area">
-        <div class="search-box">
-            <textarea id="userInput" placeholder="Ask about Satyam's experience, projects, or skills…" rows="1"></textarea>
-            <button class="send-btn" onclick="sendMessage()" id="sendBtn">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="22" y1="2" x2="11" y2="13"></line>
-                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                </svg>
-            </button>
-        </div>
-        <p class="input-note">Powered by Groq · Knows everything about Satyam</p>
-    </div>
-
-</div>
-
-<script src="script.js"></script>
+    <script src="splash.js"></script>
 </body>
 </html>

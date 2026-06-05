@@ -44,6 +44,6 @@ function enterPortfolio() {
     
     // Redirect to portfolio after fade
     setTimeout(() => {
-        window.location.href = 'index.html';
+        window.location.href = 'protfolio.html';
     }, 600);
 }
