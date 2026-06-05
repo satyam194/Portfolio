@@ -285,6 +285,16 @@ async function callGroqAPI(question) {
     return formatAPIResponse(data.answer);
 }
 
+function setAppHeight() {
+    document.documentElement.style.setProperty(
+        '--app-height',
+        `${window.innerHeight}px`
+    );
+}
+
+window.addEventListener('resize', setAppHeight);
+setAppHeight();
+
 function formatAPIResponse(text) {
     // Convert bullet lines to HTML list items and add links/emails
     const lines = text.split('\n');
