@@ -270,8 +270,8 @@ body { display: flex; }
 
 .theme-toggle {
     position: fixed;
-    top: 20px;
-    right: 20px;
+    top: max(20px, env(safe-area-inset-top) + 8px);;
+    right: max(20px, env(safe-area-inset-right) + 8px);;
     width: 50px;
     height: 50px;
     background: var(--surface);
@@ -303,8 +303,8 @@ body { display: flex; }
 .hamburger {
     display: none;
     position: fixed;
-    top: 16px;
-    left: 16px;
+    top: max(16px, env(safe-area-inset-top) + 8px);
+    left: max(16px, env(safe-area-inset-left) + 8px);
     z-index: 200;
     background: var(--surface-2);
     border: 1px solid var(--border);
@@ -341,7 +341,7 @@ body { display: flex; }
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 40px 32px 0;
+    padding: max(40px, env(safe-area-inset-top) + 16px) 32px 0;
     overflow-y: auto;
 }
 
@@ -838,7 +838,7 @@ body { display: flex; }
 
     .main { width: 100%; }
 
-    .landing { padding: 60px 20px 0; }
+    .landing { padding: max(72px, calc(env(safe-area-inset-top) + 56px)) 20px 0; }
 
     .stat-row { grid-template-columns: repeat(2, 1fr); }
 
