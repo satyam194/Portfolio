@@ -89,9 +89,6 @@ function triggerEntranceAnimations() {
         if (landing) {
             landing.classList.add('entrance-animate');
         }
-
-        if (themeToggle) {
-            themeToggle.classList.add('entrance-animate');
         }
     }, 50);
 }
