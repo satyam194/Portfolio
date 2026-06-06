@@ -157,8 +157,8 @@ body {
     border-right: 1px solid var(--border);
     display: flex;
     flex-direction: column;
-    overflow-y: auto;
-    /* Fluid padding using clamp */
+    /* Remove overflow-y: auto */
+    overflow: hidden;
     padding: clamp(16px, 3vw, 24px) clamp(12px, 2vw, 16px);
     padding-bottom: max(clamp(16px, 3vw, 24px), var(--safe-bottom));
     transition: transform 0.3s ease;
@@ -166,12 +166,23 @@ body {
 }
 
 .sidebar-header {
+    padding-bottom: clamp(12px, 2vh, 24px);
+    margin-bottom: clamp(6px, 1vh, 8px);
+    flex-shrink: 0; /* never compress the header */
+    border-bottom: 1px solid var(--border);
     display: flex;
     align-items: center;
     gap: 12px;
-    padding-bottom: 24px;
-    margin-bottom: 8px;
-    border-bottom: 1px solid var(--border);
+}
+
+.sidebar-footer {
+    margin-top: 0; /* flexbox handles spacing now */
+    padding-top: clamp(10px, 2vh, 20px);
+    flex-shrink: 0; /* never compress the footer */
+    border-top: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
 }
 
 .logo-mark {
@@ -203,7 +214,16 @@ body {
 }
 
 .sidebar-section {
-    margin-bottom: 24px;
+    margin-bottom: 0; /* remove fixed margin */
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    /* Hide scrollbar visually but keep functionality */
+    scrollbar-width: none;
+}
+
+.sidebar-section::-webkit-scrollbar {
+    display: none;
 }
 
 .sidebar-section h4 {
@@ -212,7 +232,7 @@ body {
     color: var(--text-dim);
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    margin-bottom: 8px;
+    margin-bottom: clamp(4px, 1vh, 8px);
     padding-left: 8px;
 }
 
@@ -222,7 +242,7 @@ body {
     background: transparent;
     border: none;
     color: var(--text-muted);
-    padding: 9px 10px;
+    padding: clamp(6px, 1.2vh, 9px) 10px;
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.2s;
@@ -233,7 +253,7 @@ body {
     align-items: center;
     gap: 8px;
     /* Touch-friendly minimum tap target */
-    min-height: 44px;
+    min-height: clamp(36px, 5vh, 44px); /* fluid tap target */
 }
 
 .item-icon {
