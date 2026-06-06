@@ -215,7 +215,7 @@ body {
 
 .sidebar-section {
     margin-bottom: 0; /* remove fixed margin */
-    flex: auto;
+    flex: none;
     overflow-y: auto;
     overflow-x: hidden;
     /* Hide scrollbar visually but keep functionality */
