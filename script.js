@@ -38,61 +38,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function triggerEntranceAnimations() {
     const fromSplash = sessionStorage.getItem('fromSplash');
-
     const overlay = document.getElementById('transitionOverlay');
-
-    // Normal page refresh
-    if (!fromSplash) {
-        if (overlay) {
-            overlay.style.display = 'none';
-        }
-        return;
-    }
-
-    sessionStorage.removeItem('fromSplash');
-
     const sidebar = document.getElementById('sidebar');
     const landing = document.getElementById('landing');
     const main = document.getElementById('main');
     const themeToggle = document.getElementById('themeToggle');
 
-    // Set initial hidden state
-    if (sidebar) {
-        sidebar.style.opacity = '0';
-        sidebar.style.transform = 'translateY(60px)';
+    // Always hide overlay on normal load
+    if (overlay) overlay.style.display = 'none';
+
+    // No splash → just make sure everything is visible, no animation
+    if (!fromSplash) {
+        if (sidebar) { sidebar.style.opacity = '1'; sidebar.style.transform = 'none'; }
+        if (landing) { landing.style.opacity = '1'; landing.style.transform = 'none'; }
+        if (themeToggle) { themeToggle.style.opacity = '1'; themeToggle.style.transform = 'none'; }
+        return;
     }
 
-    if (landing) {
-        landing.style.opacity = '0';
-        landing.style.transform = 'translateY(60px)';
-    }
+    sessionStorage.removeItem('fromSplash');
 
-    if (themeToggle) {
-        themeToggle.style.opacity = '0';
-        themeToggle.style.transform = 'translateY(60px)';
-    }
+    // Set initial hidden state for animation
+    if (sidebar) { sidebar.style.opacity = '0'; sidebar.style.transform = 'translateY(60px)'; }
+    if (landing) { landing.style.opacity = '0'; landing.style.transform = 'translateY(60px)'; }
+    if (themeToggle) { themeToggle.style.opacity = '0'; themeToggle.style.transform = 'translateY(60px)'; }
 
     // Trigger animations
     setTimeout(() => {
-        if (overlay) {
-            overlay.classList.add('hide');
-        }
-
-        if (sidebar) {
-            sidebar.classList.add('entrance-animate');
-        }
-
-        if (main) {
-            main.classList.add('entrance-animate');
-        }
-
-        if (landing) {
-            landing.classList.add('entrance-animate');
-        }
-        }
+        if (overlay) overlay.classList.add('hide');
+        if (sidebar) sidebar.classList.add('entrance-animate');
+        if (main) main.classList.add('entrance-animate');
+        if (landing) landing.classList.add('entrance-animate');
+        if (themeToggle) themeToggle.classList.add('entrance-animate');
     }, 50);
 }
-
 document.addEventListener('DOMContentLoaded', triggerEntranceAnimations);
 
 const knowledgeBase = {
