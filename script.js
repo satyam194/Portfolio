@@ -28,8 +28,13 @@ function updateThemeIcon(theme) {
 }
 
 // Initialize theme on page load
-document.addEventListener('DOMContentLoaded', initTheme);
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.getElementById('hamburgerBtn'); // match your HTML id
+    if (hamburger) hamburger.addEventListener('click', toggleSidebar);
 
+    const overlay = document.getElementById('sidebarOverlay');
+    if (overlay) overlay.addEventListener('click', toggleSidebar); // tap backdrop to close
+});
 /* ==========================================
    ENTRANCE ANIMATIONS
 ========================================== */
@@ -286,8 +291,10 @@ async function callGroqAPI(question) {
 }
 
 function toggleSidebar() {
-    document.getElementById('sidebar').classList.toggle('open');
-    document.getElementById('sidebarOverlay').classList.toggle('active');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebarOverlay');
+    sidebar.classList.toggle('open');
+    overlay.classList.toggle('active');
 }
 
 function setAppHeight() {
@@ -295,16 +302,10 @@ function setAppHeight() {
         ? window.visualViewport.height
         : window.innerHeight;
     document.documentElement.style.setProperty(
-        '--app-height', `${h}px`
     );
 }
 
-window.visualViewport?.addEventListener('resize', setAppHeight);
-window.addEventListener('resize', setAppHeight);
-setAppHeight();
 
-window.addEventListener('resize', setAppHeight);
-setAppHeight();
 
 function formatAPIResponse(text) {
     // Convert bullet lines to HTML list items and add links/emails
