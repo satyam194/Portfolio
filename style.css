@@ -147,11 +147,7 @@ body {
 /* ===========================
    SIDEBAR
 =========================== */
-.entrance-animate {
-    transition: opacity 0.6s ease, transform 0.6s ease;
-    opacity: 1 !important;
-    transform: none !important;
-}
+
 .sidebar {
     width: var(--sidebar-w);
     min-width: var(--sidebar-w);
