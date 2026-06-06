@@ -31,9 +31,6 @@ function updateThemeIcon(theme) {
 document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.getElementById('hamburgerBtn');
     if (hamburger) hamburger.addEventListener('click', toggleSidebar);
-
-    const overlay = document.getElementById('sidebarOverlay');
-    if (overlay) overlay.addEventListener('click', toggleSidebar); // ← this line closes on outside tap
 });
 /* ==========================================
    ENTRANCE ANIMATIONS
