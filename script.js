@@ -51,7 +51,6 @@
         if (!fromSplash) {
             if (overlay) overlay.style.display = 'none';
             // Only reset opacity, don't override sidebar transform (breaks mobile drawer)
-            if (sidebar) sidebar.style.opacity = '1';
             if (landing) { landing.style.opacity = '1'; landing.style.transform = 'none'; }
             if (themeToggle) { themeToggle.style.opacity = '1'; themeToggle.style.transform = 'none'; }
             return;
