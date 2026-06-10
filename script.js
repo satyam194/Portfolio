@@ -6,7 +6,7 @@
     /* ==========================================
     THEME TOGGLE
     ========================================== */
-
+    
     function initTheme() {
         const savedTheme = localStorage.getItem('theme') || 'dark';
         document.body.classList.toggle('light-mode', savedTheme === 'light');
@@ -395,6 +395,40 @@
             });
         });
     }
+
+      // Tab switching (mobile)
+    function switchTab(tab) {
+        const resumePanel = document.getElementById('resume-panel');
+        const chatPanel = document.getElementById('chat-panel');
+        const tabResume = document.getElementById('tab-resume');
+        const tabChat = document.getElementById('tab-chat');
+
+        if (tab === 'resume') {
+        resumePanel.classList.remove('hidden');
+        chatPanel.classList.remove('active');
+        tabResume.classList.add('active');
+        tabChat.classList.remove('active');
+        } else {
+        resumePanel.classList.add('hidden');
+        chatPanel.classList.add('active');
+        tabChat.classList.add('active');
+        tabResume.classList.remove('active');
+        }
+    }
+
+    // On desktop, always show both
+    function handleResize() {
+        const resumePanel = document.getElementById('resume-panel');
+        const chatPanel = document.getElementById('chat-panel');
+        if (window.innerWidth > 768) {
+        resumePanel.classList.remove('hidden');
+        chatPanel.classList.remove('active');
+        chatPanel.style.transform = '';
+        chatPanel.style.opacity = '';
+        }
+    }
+    window.addEventListener('resize', handleResize);
+    handleResize();
 
     /* ==========================================
     STATIC FALLBACK (offline)

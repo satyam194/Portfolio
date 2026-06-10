@@ -569,39 +569,35 @@
         <div class="section-label">Impact</div>
         <div class="impact-links">
 
-          <a href="#" class="impact-card" title="View Amex Resume">
-            <div class="impact-card-left">
-              <div class="impact-icon amex-icon">
-                <svg viewBox="0 0 32 32" width="20" height="20" fill="none">
-                  <rect width="32" height="32" rx="6" fill="#016FD0"/>
-                  <text x="4" y="22" font-family="Arial" font-weight="900" font-size="11" fill="white">AMEX</text>
-                </svg>
-              </div>
-              <div>
-                <div class="impact-name">American Express</div>
-                <div class="impact-meta">Data Scientist · 2024–Present · $30M+ cases</div>
-              </div>
+        <div class="impact-card-left">
+            <div class="impact-icon amex-icon">
+            <svg viewBox="0 0 32 32" width="20" height="20" fill="none">
+                <rect width="32" height="32" rx="6" fill="#016FD0"/>
+                <text x="4" y="22" font-family="Arial" font-weight="900" font-size="11" fill="white">AMEX</text>
+            </svg>
             </div>
-            <div class="impact-arrow">↗</div>
-          </a>
-
-          <a href="#" class="impact-card" title="View mCaffeine Resume">
-            <div class="impact-card-left">
-              <div class="impact-icon mcaffeine-icon">
-                <svg viewBox="0 0 32 32" width="20" height="20" fill="none">
-                  <rect width="32" height="32" rx="6" fill="#3d2b1f"/>
-                  <text x="6" y="21" font-family="Arial" font-weight="900" font-size="13" fill="#c8a96e">mC</text>
-                </svg>
-              </div>
-              <div>
-                <div class="impact-name">mCaffeine</div>
-                <div class="impact-meta">Analytics Intern · 2023 · Power BI</div>
-              </div>
+            <div>
+            <div class="impact-name">American Express</div>
+            <div class="impact-meta">Data Scientist · 2024–Present · $30M+ cases</div>
             </div>
-            <div class="impact-arrow">↗</div>
-          </a>
+        </div>
+        <div class="impact-arrow">↗</div>
 
-          <a href="#" target="_blank" rel="noopener" class="impact-card resume-card" title="Download Resume">
+        <div class="impact-card-left">
+            <div class="impact-icon mcaffeine-icon">
+            <svg viewBox="0 0 32 32" width="20" height="20" fill="none">
+                <rect width="32" height="32" rx="6" fill="#3d2b1f"/>
+                <text x="6" y="21" font-family="Arial" font-weight="900" font-size="13" fill="#c8a96e">mC</text>
+            </svg>
+            </div>
+            <div>
+            <div class="impact-name">mCaffeine</div>
+            <div class="impact-meta">Analytics Intern · 2023 · Power BI</div>
+            </div>
+        </div>
+        <div class="impact-arrow">↗</div>
+
+          <a href="https://drive.google.com/file/d/1HyC0b_IoHrjHQMadWs0owNGYssg9Tkdk/view?usp=sharing" target="_blank" rel="noopener" class="impact-card resume-card" title="Download Resume">
             <div class="impact-card-left">
               <div class="impact-icon resume-icon">
                 <svg viewBox="0 0 32 32" width="20" height="20" fill="none">
@@ -620,7 +616,7 @@
             <div class="impact-arrow">↗</div>
           </a>
 
-          <a href="https://linkedin.com/in/satyam" target="_blank" rel="noopener" class="impact-card linkedin-card" title="LinkedIn Profile">
+          <a href="https://www.linkedin.com/in/satyam-kushwah-005265246/" target="_blank" rel="noopener" class="impact-card linkedin-card" title="LinkedIn Profile">
             <div class="impact-card-left">
               <div class="impact-icon linkedin-icon">
                 <svg viewBox="0 0 32 32" width="20" height="20" fill="none">
@@ -739,142 +735,7 @@
 
 </div>
 
-<script>
-  // Tab switching (mobile)
-  function switchTab(tab) {
-    const resumePanel = document.getElementById('resume-panel');
-    const chatPanel = document.getElementById('chat-panel');
-    const tabResume = document.getElementById('tab-resume');
-    const tabChat = document.getElementById('tab-chat');
+<script src="script.js"></script>
 
-    if (tab === 'resume') {
-      resumePanel.classList.remove('hidden');
-      chatPanel.classList.remove('active');
-      tabResume.classList.add('active');
-      tabChat.classList.remove('active');
-    } else {
-      resumePanel.classList.add('hidden');
-      chatPanel.classList.add('active');
-      tabChat.classList.add('active');
-      tabResume.classList.remove('active');
-    }
-  }
-
-  // On desktop, always show both
-  function handleResize() {
-    const resumePanel = document.getElementById('resume-panel');
-    const chatPanel = document.getElementById('chat-panel');
-    if (window.innerWidth > 768) {
-      resumePanel.classList.remove('hidden');
-      chatPanel.classList.remove('active');
-      chatPanel.style.transform = '';
-      chatPanel.style.opacity = '';
-    }
-  }
-  window.addEventListener('resize', handleResize);
-  handleResize();
-
-  // Chat logic
-  const messages = [];
-
-  function autoResize(el) {
-    el.style.height = 'auto';
-    el.style.height = Math.min(el.scrollHeight, 100) + 'px';
-  }
-
-  function handleKey(e) {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault();
-      sendMessage();
-    }
-  }
-
-  function sendQuick(btn) {
-    document.getElementById('chat-input').value = btn.textContent;
-    sendMessage();
-  }
-
-  function appendMsg(role, text) {
-    const container = document.getElementById('chat-messages');
-    const div = document.createElement('div');
-    div.className = `msg ${role}`;
-    div.innerHTML = `
-      <div class="msg-avatar">${role === 'ai' ? '⚡' : 'S'}</div>
-      <div class="msg-bubble">${text}</div>
-    `;
-    container.appendChild(div);
-    container.scrollTop = container.scrollHeight;
-    return div;
-  }
-
-  function showTyping() {
-    const container = document.getElementById('chat-messages');
-    const wrap = document.createElement('div');
-    wrap.className = 'msg ai';
-    wrap.innerHTML = `
-      <div class="msg-avatar">⚡</div>
-      <div class="typing-indicator visible"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
-    `;
-    wrap.id = 'typing-wrap';
-    container.appendChild(wrap);
-    container.scrollTop = container.scrollHeight;
-  }
-
-  function hideTyping() {
-    const el = document.getElementById('typing-wrap');
-    if (el) el.remove();
-  }
-
-  const SYSTEM_PROMPT = `You are Satyam's personal AI assistant embedded in his portfolio website. You know everything about him.
-
-ABOUT SATYAM:
-- Data Scientist at American Express (8-9 months experience)
-- Graduated from IIT (ISM) Dhanbad
-- Works in credit risk, model monitoring, case reviews, data-driven insights
-- Previously interned at mCaffeine (Power BI, logistics analytics)
-- Built LLM-integrated financial anomaly detection system using Random Forest + Isolation Forest, Streamlit dashboard, LangChain + GPT-4o-mini
-- Built Credit Risk Copilot and other automation tools
-- Top 1% in JEE Mains & Advanced
-- Top 50 in Meesho Dice competition
-- Skills: Python, SQL, ML, LLMs, RAG, SHAP, Power BI, Playwright, Gemini API, Streamlit
-- Open to opportunities at Indian startups and fintech companies
-- Interested in fintech, fraud detection, model interpretability, LLM workflows
-
-Be concise, confident, and speak in first person on behalf of Satyam. Answer in 2-4 sentences unless more detail is asked. Be direct and impressive.`;
-
-  async function sendMessage() {
-    const input = document.getElementById('chat-input');
-    const text = input.value.trim();
-    if (!text) return;
-
-    input.value = '';
-    input.style.height = 'auto';
-    appendMsg('user', text);
-    messages.push({ role: 'user', content: text });
-    showTyping();
-
-    try {
-      const response = await fetch('https://api.anthropic.com/v1/messages', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          model: 'claude-sonnet-4-20250514',
-          max_tokens: 1000,
-          system: SYSTEM_PROMPT,
-          messages: messages
-        })
-      });
-
-      const data = await response.json();
-      const reply = data.content?.[0]?.text || 'Something went wrong. Try again!';
-      hideTyping();
-      appendMsg('ai', reply);
-      messages.push({ role: 'assistant', content: reply });
-    } catch (err) {
-      hideTyping();
-      appendMsg('ai', 'Connection error — please try again.');
-    }
-  }
-</script>
 </body>
 </html>
