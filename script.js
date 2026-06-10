@@ -160,12 +160,7 @@
     /* ==========================================
     STATE
     ========================================== */
-    window.addEventListener('load', () => {
-        if (!sessionStorage.getItem('pageRefreshed')) {
-            sessionStorage.setItem('pageRefreshed', 'true');
-            location.reload();
-        }
-    });
+    
     let chatStarted = false;
     let isThinking = false;
     const conversationHistory = [];
