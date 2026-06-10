@@ -166,7 +166,7 @@
 
         setTimeout(() => {
             location.reload();
-        }, 100);
+        });
     }
 });
     let chatStarted = false;
