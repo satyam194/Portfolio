@@ -160,14 +160,7 @@
     /* ==========================================
     STATE
     ========================================== */
-    window.addEventListener('load', async () => {
-    await document.fonts.ready;
 
-    if (!sessionStorage.getItem('pageRefreshed')) {
-        sessionStorage.setItem('pageRefreshed', 'true');
-        location.reload();
-    }
-});
     let chatStarted = false;
     let isThinking = false;
     const conversationHistory = [];
@@ -184,6 +177,7 @@
     function startChat() {
         if (chatStarted) return;
         chatStarted = true;
+        landing.classList.add('hidden');
         chatContainer.classList.add('active');
     }
 
