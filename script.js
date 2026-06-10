@@ -6,12 +6,7 @@
     /* ==========================================
     THEME TOGGLE
     ========================================== */
-    window.addEventListener('load', () => {
-        if (!sessionStorage.getItem('pageRefreshed')) {
-            sessionStorage.setItem('pageRefreshed', 'true');
-            location.reload();
-        }
-    });
+    
 
     function initTheme() {
         const savedTheme = localStorage.getItem('theme') || 'dark';
@@ -165,7 +160,12 @@
     /* ==========================================
     STATE
     ========================================== */
-
+    window.addEventListener('load', () => {
+        if (!sessionStorage.getItem('pageRefreshed')) {
+            sessionStorage.setItem('pageRefreshed', 'true');
+            location.reload();
+        }
+    });
     let chatStarted = false;
     let isThinking = false;
     const conversationHistory = [];
