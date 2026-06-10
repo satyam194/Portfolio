@@ -15,6 +15,8 @@
       display: flex;
       flex: 1;
       overflow: hidden;
+      position: relative;
+      min-height: 0;
     }
 
     /* ── LEFT: RESUME PANEL ── */
@@ -377,11 +379,14 @@
 
       .resume-panel {
         position: absolute;
-        inset: 0;
+        top: 0; left: 0; right: 0; bottom: 0;
         width: 100%;
+        height: 100%;
         border-right: none;
         transition: transform 0.3s ease, opacity 0.3s ease;
         z-index: 2;
+        transform: translateX(0);
+        opacity: 1;
       }
       .resume-panel.hidden {
         transform: translateX(-100%);
@@ -391,10 +396,13 @@
 
       .chat-panel {
         position: absolute;
-        inset: 0;
+        top: 0; left: 0; right: 0; bottom: 0;
+        width: 100%;
+        height: 100%;
         transition: transform 0.3s ease, opacity 0.3s ease;
         transform: translateX(100%);
         opacity: 0;
+        z-index: 1;
       }
       .chat-panel.mobile-active {
         transform: translateX(0);
