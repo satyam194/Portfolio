@@ -176,14 +176,18 @@
     function startChat() {
         if (chatStarted) return;
         chatStarted = true;
-        landing.classList.add('hidden');
         chatContainer.classList.add('active');
     }
 
     /* ==========================================
     MESSAGES
     ========================================== */
-
+    function resetChat() {
+    chatStarted = false;
+    landing.classList.remove('hidden');
+    chatContainer.innerHTML = '';
+    chatContainer.classList.remove('active');
+}
     function addUserMessage(text) {
         const row = document.createElement('div');
         row.className = 'msg-row user';
