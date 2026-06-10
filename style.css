@@ -387,6 +387,24 @@ body {
 /* ===========================
    LANDING
 =========================== */
+.impact-link {
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--text);
+}
+
+.impact-link:hover {
+    border-color: var(--accent);
+    background: var(--accent-dim);
+}
+
+.impact-link:hover .stat-num {
+    color: var(--accent);
+}
+
+.impact-link:hover .stat-label {
+    color: var(--text);
+}
 
 .landing {
     flex: 1;
