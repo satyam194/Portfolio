@@ -160,13 +160,12 @@
     /* ==========================================
     STATE
     ========================================== */
-    window.addEventListener('load', () => {
+    window.addEventListener('load', async () => {
+    await document.fonts.ready;
+
     if (!sessionStorage.getItem('pageRefreshed')) {
         sessionStorage.setItem('pageRefreshed', 'true');
-
-        setTimeout(() => {
-            location.reload();
-        });
+        location.reload();
     }
 });
     let chatStarted = false;
