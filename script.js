@@ -415,7 +415,71 @@
         tabResume.classList.remove('active');
         }
     }
-
+    // Split-screen tab switching (mobile only)
+    function splitSwitchTab(tab) {
+        const resumePanel = document.getElementById('resume-panel');
+        const chatPanel   = document.getElementById('chat-panel');
+        const tabResume   = document.getElementById('tab-resume');
+        const tabChat     = document.getElementById('tab-chat');
+    
+        if (tab === 'resume') {
+        resumePanel.classList.remove('hidden');
+        chatPanel.classList.remove('mobile-active');
+        tabResume.classList.add('active');
+        tabChat.classList.remove('active');
+        } else {
+        resumePanel.classList.add('hidden');
+        chatPanel.classList.add('mobile-active');
+        tabChat.classList.add('active');
+        tabResume.classList.remove('active');
+        }
+    }
+    
+    // On desktop always show both panels
+    function handleSplitResize() {
+        const resumePanel = document.getElementById('resume-panel');
+        const chatPanel   = document.getElementById('chat-panel');
+        if (window.innerWidth > 768) {
+        resumePanel.classList.remove('hidden');
+        chatPanel.classList.remove('mobile-active');
+        chatPanel.style.transform = '';
+        chatPanel.style.opacity  = '';
+        } else {
+        // On mobile, ensure chat panel is active by default (shows landing)
+        chatPanel.classList.add('mobile-active');
+        resumePanel.classList.add('hidden');
+        }
+    }
+    window.addEventListener('resize', handleSplitResize);
+    
+    // Run after DOM + script.js are both ready
+    document.addEventListener('DOMContentLoaded', function() {
+        handleSplitResize();
+        // Ensure landing is visible on first load (not hidden by script.js timing)
+        const landing = document.getElementById('landing');
+        if (landing && !window.chatStarted) {
+        landing.classList.remove('hidden');
+        }
+        // Init theme for mobile toggle too
+        initTheme();
+    });
+    
+    // Wrapper: clicking an impact card loads section AND switches to chat on mobile
+    function splitLoadSection(section) {
+        loadSection(section);
+        if (window.innerWidth <= 768) {
+        splitSwitchTab('chat');
+        }
+    }
+    
+    // Sync both theme toggles (mobile nav + desktop header)
+    const _origUpdateThemeIcon = window.updateThemeIcon;
+    window.updateThemeIcon = function(theme) {
+        ['themeToggle', 'themeToggleMobile'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.querySelector('.theme-icon').textContent = theme === 'light' ? '☀️' : '🌙';
+        });
+    };
     // On desktop, always show both
     function handleResize() {
         const resumePanel = document.getElementById('resume-panel');
