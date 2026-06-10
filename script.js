@@ -6,7 +6,13 @@
     /* ==========================================
     THEME TOGGLE
     ========================================== */
-    
+    window.addEventListener('load', () => {
+        if (!sessionStorage.getItem('pageRefreshed')) {
+            sessionStorage.setItem('pageRefreshed', 'true');
+            location.reload();
+        }
+    });
+
     function initTheme() {
         const savedTheme = localStorage.getItem('theme') || 'dark';
         document.body.classList.toggle('light-mode', savedTheme === 'light');
