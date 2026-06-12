@@ -1173,60 +1173,7 @@ body {
     font-family: var(--font-mono);
 }
 
-/* ===========================
-   PAGE LOAD ANIMATIONS
-=========================== */
 
-@keyframes fadeInPage {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes fadeOutPage {
-    from {
-        opacity: 1;
-    }
-    to {
-        opacity: 0;
-    }
-}
-
-@keyframes fadeInUpSmooth {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes scaleIn {
-    from {
-        opacity: 0;
-        transform: scale(0.85);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-@keyframes scaleWidth {
-    from {
-        opacity: 0;
-        transform: scaleX(0);
-    }
-    to {
-        opacity: 1;
-        transform: scaleX(1);
-    }
-}
 
 /* ===========================
    MOBILE RESPONSIVE
@@ -1301,4 +1248,161 @@ body {
         margin-bottom: 16px;
     }
     .landing-sub { margin-bottom: 16px; }
+}
+
+/* ===========================
+   ENTRANCE ANIMATIONS (matching splash page style)
+=========================== */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes scaleWidth {
+    from {
+        opacity: 0;
+        transform: scaleX(0);
+    }
+    to {
+        opacity: 1;
+        transform: scaleX(1);
+    }
+}
+
+@keyframes slideUpContent {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Resume panel logo / header */
+.resume-panel-header .logo-mark,
+.sidebar-header .logo-mark {
+    animation: scaleIn 0.6s ease-out;
+}
+
+.resume-panel-header h1 {
+    animation: fadeInUp 0.8s ease-out 0.1s backwards;
+}
+
+.resume-panel-subtitle {
+    animation: fadeInUp 0.8s ease-out 0.2s backwards;
+}
+
+/* Section labels and bodies slide in */
+.rp-section-label {
+    animation: fadeInUp 0.8s ease-out 0.3s backwards;
+}
+
+.resume-panel-body > * {
+    animation: fadeInUp 0.8s ease-out 0.4s backwards;
+}
+
+/* Stagger child sections inside resume panel */
+.resume-panel-body > *:nth-child(1) { animation-delay: 0.3s; }
+.resume-panel-body > *:nth-child(2) { animation-delay: 0.4s; }
+.resume-panel-body > *:nth-child(3) { animation-delay: 0.5s; }
+.resume-panel-body > *:nth-child(4) { animation-delay: 0.6s; }
+.resume-panel-body > *:nth-child(5) { animation-delay: 0.7s; }
+
+/* Chat panel header */
+.chat-panel-title {
+    animation: fadeInUp 0.8s ease-out 0.1s backwards;
+}
+
+.chat-panel-sub {
+    animation: fadeInUp 0.8s ease-out 0.2s backwards;
+}
+
+/* Quick prompt chips */
+.quick-prompts {
+    animation: fadeInUp 0.8s ease-out 0.3s backwards;
+}
+
+/* Landing area inside chat */
+.chat-landing-inner .greeting-tag {
+    animation: fadeInUp 0.8s ease-out 0.1s backwards;
+}
+
+.chat-landing-inner h2 {
+    animation: fadeInUp 0.8s ease-out 0.2s backwards;
+}
+
+.chat-landing-inner p {
+    animation: fadeInUp 0.8s ease-out 0.3s backwards;
+}
+
+.landing-title {
+    animation: fadeInUp 0.8s ease-out 0.1s backwards;
+}
+
+.landing-sub {
+    animation: fadeInUp 0.8s ease-out 0.2s backwards;
+}
+
+/* Stat row cards */
+.stat-row .stat {
+    animation: fadeInUp 0.8s ease-out 0.3s backwards;
+}
+.stat-row .stat:nth-child(1) { animation-delay: 0.3s; }
+.stat-row .stat:nth-child(2) { animation-delay: 0.35s; }
+.stat-row .stat:nth-child(3) { animation-delay: 0.4s; }
+.stat-row .stat:nth-child(4) { animation-delay: 0.45s; }
+
+/* Suggestion chips */
+.suggestions .chip {
+    animation: fadeInUp 0.8s ease-out 0.4s backwards;
+}
+.suggestions .chip:nth-child(1) { animation-delay: 0.4s; }
+.suggestions .chip:nth-child(2) { animation-delay: 0.45s; }
+.suggestions .chip:nth-child(3) { animation-delay: 0.5s; }
+.suggestions .chip:nth-child(4) { animation-delay: 0.55s; }
+.suggestions .chip:nth-child(5) { animation-delay: 0.6s; }
+
+/* Input area */
+.input-area {
+    animation: fadeInUp 0.8s ease-out 0.5s backwards;
+}
+
+/* Theme toggle */
+.theme-toggle {
+    animation: scaleIn 0.6s ease-out;
+}
+
+/* Underline/divider style accents (like splash-line) */
+.resume-panel-header,
+.chat-panel-header {
+    position: relative;
+}
+
+/* Whole panels slide up on initial load */
+.resume-panel {
+    animation: slideUpContent 0.8s ease-out 0s backwards;
+}
+
+.chat-panel {
+    animation: slideUpContent 0.8s ease-out 0.1s backwards;
 }
