@@ -359,7 +359,6 @@ body {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    animation: fadeInPage 0.6s ease-out;
 }
 
 .chat-panel-title {
@@ -392,7 +391,6 @@ body {
     flex-shrink: 0;
     border-bottom: 1px solid var(--border);
     scrollbar-width: none;
-    animation: fadeInPage 0.6s ease-out;
 }
 .quick-prompts::-webkit-scrollbar { display: none; }
 
@@ -434,7 +432,6 @@ body {
 .chat-landing-inner {
     max-width: 520px;
     width: 100%;
-    animation: fadeInPage 0.6s ease-out;
 }
 
 .chat-landing-inner .greeting-tag { margin-bottom: 20px; }
@@ -1019,7 +1016,6 @@ body {
     border-top: 1px solid var(--border);
     background: var(--bg);
     flex-shrink: 0;
-    animation: fadeInPage 0.6s ease-out;
 }
 
 .search-box {
@@ -1177,6 +1173,15 @@ body {
     font-family: var(--font-mono);
 }
 
+.greeting-tag,
+.landing-title,
+.landing-sub,
+.stat-row,
+.suggestions,
+.input-area {
+    animation: fadeInUp 0.8s ease-out backwards;
+}
+
 /* ===========================
    MOBILE RESPONSIVE
 =========================== */
@@ -1195,7 +1200,6 @@ body {
         width: 100%;
         border-right: none;
         flex-shrink: 0;
-        animation: fadeInPage 0.6s ease-out;
     }
     .resume-panel.mobile-active {
         display: flex;
