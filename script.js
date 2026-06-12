@@ -33,32 +33,29 @@ function updateThemeIcon(theme) {
 
 function triggerEntranceAnimations() {
     const fromSplash = sessionStorage.getItem('fromSplash');
-    const overlay = document.getElementById('transitionOverlay');
-    const sidebar = document.getElementById('sidebar');
-    const landing = document.getElementById('landing');
-    const main = document.getElementById('main');
+    const overlay    = document.getElementById('transitionOverlay');
+    const sidebar    = document.getElementById('sidebar');
+    const main       = document.getElementById('main');
     const themeToggle = document.getElementById('themeToggle');
 
+    // Always hide overlay immediately — never block the page
     if (overlay) overlay.style.display = 'none';
 
-    if (!fromSplash) {
-        if (sidebar) sidebar.style.opacity = '1';
-        if (landing) { landing.style.opacity = '1'; landing.style.transform = 'none'; }
-        if (themeToggle) { themeToggle.style.opacity = '1'; themeToggle.style.transform = 'none'; }
-        return;
-    }
+    // NEVER touch #landing opacity/transform — it must always be visible on load.
+    // The landing's visibility is controlled only by .hidden class (added when chat starts).
+
+    if (!fromSplash) return;
 
     sessionStorage.removeItem('fromSplash');
 
-    if (sidebar) { sidebar.style.opacity = '0'; sidebar.style.transform = 'translateY(60px)'; }
-    if (landing) { landing.style.opacity = '0'; landing.style.transform = 'translateY(60px)'; }
+    // Only animate sidebar and theme toggle — not the landing
+    if (sidebar)     { sidebar.style.opacity = '0'; sidebar.style.transform = 'translateY(60px)'; }
     if (themeToggle) { themeToggle.style.opacity = '0'; themeToggle.style.transform = 'translateY(60px)'; }
 
     setTimeout(() => {
-        if (overlay) overlay.classList.add('hide');
-        if (sidebar) sidebar.classList.add('entrance-animate');
-        if (main) main.classList.add('entrance-animate');
-        if (landing) landing.classList.add('entrance-animate');
+        if (overlay)     overlay.classList.add('hide');
+        if (sidebar)     sidebar.classList.add('entrance-animate');
+        if (main)        main.classList.add('entrance-animate');
         if (themeToggle) themeToggle.classList.add('entrance-animate');
     }, 50);
 }
