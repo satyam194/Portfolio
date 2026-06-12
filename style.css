@@ -896,7 +896,7 @@ body {
     font-family: var(--font-mono);
 }
 .msg-row.ai .msg-avatar   { background: var(--accent); color: #000; }
-.msg-row.user .msg-avatar { background: #2d2d2d; color: var(--text-muted); border: 1px solid var(--border); }
+.msg-row.user .msg-avatar { background: #000000; color: var(--text-muted); border: 1px solid var(--border); }
 
 .msg-bubble {
     background: var(--surface);
