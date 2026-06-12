@@ -7,429 +7,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  
-  <style>
-    /* ── SPLIT LAYOUT ── */
-    body { display: flex; flex-direction: column; height: 100dvh; overflow: hidden; }
-
-    .split-wrap {
-      display: flex;
-      flex: 1;
-      overflow: hidden;
-      position: relative;
-      min-height: 0;
-    }
-
-    /* ── LEFT: RESUME PANEL ── */
-    .resume-panel {
-      width: clamp(300px, 36vw, 420px);
-      flex-shrink: 0;
-      background: var(--sidebar-bg);
-      border-right: 1px solid var(--border);
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-    }
-
-    .resume-panel-header {
-      padding: 28px 24px 20px;
-      border-bottom: 1px solid var(--border);
-      flex-shrink: 0;
-    }
-
-    .resume-panel-header h1 {
-      font-family: var(--font-display);
-      font-size: clamp(24px, 3vw, 32px);
-      font-weight: 700;
-      line-height: 1.1;
-      color: var(--text);
-    }
-
-    .resume-panel-header h1 .name-highlight { color: var(--accent); }
-
-    .resume-panel-subtitle {
-      font-size: 11px;
-      font-family: var(--font-mono);
-      color: var(--text-muted);
-      margin-top: 6px;
-      letter-spacing: 0.5px;
-    }
-
-    .resume-panel-body {
-      flex: 1;
-      overflow-y: auto;
-      padding: 20px 24px 32px;
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-      scrollbar-width: none;
-    }
-    .resume-panel-body::-webkit-scrollbar { display: none; }
-
-    .rp-section-label {
-      font-size: 10px;
-      font-family: var(--font-mono);
-      color: var(--text-dim);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 10px;
-    }
-
-    /* Impact link cards */
-    .impact-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .impact-card {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 13px 16px;
-      text-decoration: none;
-      color: var(--text);
-      cursor: pointer;
-      transition: border-color 0.2s, background 0.2s;
-    }
-
-    .impact-card:hover {
-      border-color: var(--accent);
-      background: var(--accent-dim);
-    }
-
-    .impact-card:hover .impact-name { color: var(--accent); }
-
-    .impact-card-left { display: flex; align-items: center; gap: 12px; }
-
-    .impact-icon {
-      width: 34px; height: 34px;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      font-size: 15px;
-      background: var(--surface-2);
-      border: 1px solid var(--border);
-    }
-
-    .impact-name {
-      font-family: var(--font-display);
-      font-size: 14px;
-      font-weight: 600;
-      transition: color 0.2s;
-    }
-
-    .impact-meta {
-      font-size: 11px;
-      font-family: var(--font-mono);
-      color: var(--text-muted);
-      margin-top: 2px;
-    }
-
-    .impact-arrow {
-      font-size: 16px;
-      color: var(--text-dim);
-      transition: color 0.2s, transform 0.2s;
-    }
-
-    .impact-card:hover .impact-arrow {
-      color: var(--accent);
-      transform: translate(2px, -2px);
-    }
-
-    /* Experience items */
-    .exp-item {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 14px 16px;
-      margin-bottom: 8px;
-      transition: border-color 0.2s;
-    }
-    .exp-item:hover { border-color: var(--border-light); }
-    .exp-company {
-      font-family: var(--font-display);
-      font-size: 14px;
-      font-weight: 600;
-    }
-    .exp-role {
-      font-size: 11px;
-      font-family: var(--font-mono);
-      color: var(--text-muted);
-      margin-top: 3px;
-    }
-    .exp-bullets {
-      list-style: none;
-      margin-top: 10px;
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-    }
-    .exp-bullets li {
-      font-size: 11px;
-      color: var(--text-muted);
-      padding-left: 14px;
-      position: relative;
-      line-height: 1.5;
-    }
-    .exp-bullets li::before {
-      content: '→';
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-      font-size: 10px;
-    }
-
-    /* Skills */
-    .skills-wrap { display: flex; flex-wrap: wrap; gap: 6px; }
-    .skill-tag {
-      font-size: 10px;
-      font-family: var(--font-mono);
-      padding: 4px 10px;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      color: var(--text-muted);
-      background: var(--surface);
-      transition: all 0.2s;
-    }
-    .skill-tag:hover { border-color: var(--accent); color: var(--accent); }
-
-    /* ── RIGHT: CHAT PANEL ── */
-    .chat-panel {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      background: var(--bg);
-      overflow: hidden;
-      position: relative;
-    }
-
-    .chat-panel-header {
-      padding: 22px 28px 16px;
-      border-bottom: 1px solid var(--border);
-      flex-shrink: 0;
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-    }
-
-    .chat-panel-title {
-      font-family: var(--font-display);
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--text);
-    }
-
-    .chat-panel-sub {
-      font-size: 11px;
-      font-family: var(--font-mono);
-      color: var(--text-muted);
-      margin-top: 4px;
-    }
-
-    .quick-prompts {
-      display: flex;
-      gap: 8px;
-      padding: 12px 28px;
-      overflow-x: auto;
-      flex-shrink: 0;
-      border-bottom: 1px solid var(--border);
-      scrollbar-width: none;
-    }
-    .quick-prompts::-webkit-scrollbar { display: none; }
-
-    .qp-chip {
-      white-space: nowrap;
-      font-family: var(--font-mono);
-      font-size: 11px;
-      padding: 6px 14px;
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      background: var(--surface);
-      color: var(--text-muted);
-      cursor: pointer;
-      transition: all 0.2s;
-      flex-shrink: 0;
-    }
-    .qp-chip:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      background: var(--accent-dim);
-    }
-
-    /* Landing inside chat panel */
-    .chat-landing {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 32px 28px;
-      overflow-y: auto;
-    }
-    .chat-landing.hidden { display: none; }
-
-    .chat-landing-inner {
-      max-width: 520px;
-      width: 100%;
-    }
-
-    .chat-landing-inner .greeting-tag { margin-bottom: 20px; }
-
-    .chat-landing-inner h2 {
-      font-family: var(--font-display);
-      font-size: clamp(22px, 3vw, 30px);
-      font-weight: 700;
-      line-height: 1.2;
-      margin-bottom: 12px;
-      color: var(--text);
-    }
-
-    .chat-landing-inner p {
-      font-size: 13px;
-      color: var(--text-muted);
-      line-height: 1.7;
-      margin-bottom: 28px;
-    }
-
-    /* ── MOBILE TOP NAV ── */
-    .mobile-nav {
-      display: none;
-      align-items: center;
-      justify-content: space-between;
-      padding: 14px 20px;
-      border-bottom: 1px solid var(--border);
-      background: var(--bg);
-      flex-shrink: 0;
-    }
-
-    .mobile-nav-logo {
-      font-family: var(--font-display);
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--text);
-    }
-    .mobile-nav-logo span { color: var(--accent); }
-
-    .mobile-nav-status {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 11px;
-      font-family: var(--font-mono);
-      color: var(--accent);
-      background: var(--accent-dim);
-      border: 1px solid rgba(200,255,87,0.25);
-      padding: 4px 10px;
-      border-radius: 20px;
-    }
-    .mobile-nav-status::before {
-      content: '';
-      width: 6px; height: 6px;
-      background: var(--accent);
-      border-radius: 50%;
-      animation: pulse 2s infinite;
-    }
-
-    /* ── MOBILE TAB BAR ── */
-    .tab-bar {
-      display: none;
-      border-bottom: 1px solid var(--border);
-      background: var(--bg);
-      flex-shrink: 0;
-    }
-    .tab-bar button {
-      flex: 1;
-      padding: 12px;
-      background: none;
-      border: none;
-      border-bottom: 2px solid transparent;
-      color: var(--text-muted);
-      font-family: var(--font-display);
-      font-size: 13px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 7px;
-    }
-    .tab-bar button.active {
-      color: var(--accent);
-      border-bottom-color: var(--accent);
-    }
-    .tab-badge {
-      background: var(--accent);
-      color: #000;
-      font-size: 9px;
-      font-weight: 700;
-      padding: 2px 5px;
-      border-radius: 5px;
-      font-family: var(--font-mono);
-    }
-
-    /* ── MOBILE RESPONSIVE ── */
-    @media (max-width: 768px) {
-      .mobile-nav { display: flex; }
-      .tab-bar { display: flex; }
-
-      .resume-panel {
-        position: absolute;
-        top: 0; left: 0; right: 0; bottom: 0;
-        width: 100%;
-        height: 100%;
-        border-right: none;
-        transition: transform 0.3s ease, opacity 0.3s ease;
-        z-index: 2;
-        transform: translateX(0);
-        opacity: 1;
-      }
-      .resume-panel.hidden {
-        transform: translateX(-100%);
-        opacity: 0;
-        pointer-events: none;
-      }
-
-      .chat-panel {
-        position: absolute;
-        top: 0; left: 0; right: 0; bottom: 0;
-        width: 100%;
-        height: 100%;
-        transition: transform 0.3s ease, opacity 0.3s ease;
-        transform: translateX(100%);
-        opacity: 0;
-        z-index: 1;
-      }
-      .chat-panel.mobile-active {
-        transform: translateX(0);
-        opacity: 1;
-        z-index: 2;
-      }
-
-      .chat-panel-header { padding: 16px 18px 12px; }
-      .quick-prompts { padding: 10px 18px; }
-      .chat-landing { padding: 20px 18px; }
-      .resume-panel-header { padding: 20px 18px 16px; }
-      .resume-panel-body { padding: 16px 18px 28px; }
-
-      /* hide original theme toggle on mobile (nav handles it) */
-      .theme-toggle { display: none; }
-    }
-  </style>
 </head>
 <body>
 
 <!-- MOBILE TOP NAV -->
 <nav class="mobile-nav">
   <div class="mobile-nav-logo">Satyam<span>.</span></div>
-  <div style="display:flex;gap:8px;align-items:center;">
+  <div class="mobile-nav-actions">
     <div class="mobile-nav-status">Open to work</div>
-    <button class="theme-toggle" id="themeToggleMobile" onclick="toggleTheme()" title="Toggle theme" style="position:static;width:36px;height:36px;font-size:16px;">
+    <button class="theme-toggle" id="themeToggleMobile" onclick="toggleTheme()" title="Toggle theme">
       <span class="theme-icon">🌙</span>
     </button>
   </div>
@@ -447,7 +33,7 @@
 <div class="split-wrap">
 
   <!-- LEFT: RESUME PANEL -->
-  <aside class="resume-panel hidden" id="resume-panel">
+  <aside class="resume-panel" id="resume-panel">
     <div class="resume-panel-header">
       <div class="greeting-tag">Available for opportunities</div>
       <h1>Hi, I'm <span class="name-highlight">Satyam</span></h1>
@@ -466,7 +52,7 @@
               <div class="impact-icon">🏦</div>
               <div>
                 <div class="impact-name">American Express</div>
-                <div class="impact-meta">· Data Scientist · Sept 2025–May2026 ·</div>
+                <div class="impact-meta">· Data Scientist · Sept 2025–May 2026 ·</div>
               </div>
             </div>
             <div class="impact-arrow">↗</div>
@@ -477,7 +63,7 @@
               <div class="impact-icon">☕</div>
               <div>
                 <div class="impact-name">mCaffeine</div>
-                <div class="impact-meta">· Data Analyst and Automation Intern · May-Aug 2025 ·</div>
+                <div class="impact-meta">· Data Analyst and Automation Intern · May–Aug 2025 ·</div>
               </div>
             </div>
             <div class="impact-arrow">↗</div>
@@ -569,15 +155,14 @@
   </aside>
 
   <!-- RIGHT: CHAT PANEL -->
-  <section class="chat-panel mobile-active" id="chat-panel">
+  <section class="chat-panel" id="chat-panel">
 
-    <!-- Desktop theme toggle lives here -->
     <div class="chat-panel-header">
       <div>
         <div class="chat-panel-title">Ask me anything about Satyam →</div>
         <div class="chat-panel-sub">Experience · Projects · Skills · Availability</div>
       </div>
-      <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Toggle theme" style="position:static;margin-left:12px;">
+      <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Toggle theme">
         <span class="theme-icon">🌙</span>
       </button>
     </div>
@@ -623,57 +208,5 @@
 </div><!-- end split-wrap -->
 
 <script src="script.js"></script>
-<script>
-  // Split-screen tab switching (mobile only)
-  function splitSwitchTab(tab) {
-    const resumePanel = document.getElementById('resume-panel');
-    const chatPanel   = document.getElementById('chat-panel');
-    const tabResume   = document.getElementById('tab-resume');
-    const tabChat     = document.getElementById('tab-chat');
-
-    if (tab === 'resume') {
-      resumePanel.classList.remove('hidden');
-      chatPanel.classList.remove('mobile-active');
-      tabResume.classList.add('active');
-      tabChat.classList.remove('active');
-    } else {
-      resumePanel.classList.add('hidden');
-      chatPanel.classList.add('mobile-active');
-      tabChat.classList.add('active');
-      tabResume.classList.remove('active');
-    }
-  }
-
-  // On desktop always show both panels
-  function handleSplitResize() {
-    const resumePanel = document.getElementById('resume-panel');
-    const chatPanel   = document.getElementById('chat-panel');
-    if (window.innerWidth > 768) {
-      resumePanel.classList.remove('hidden');
-      chatPanel.classList.remove('mobile-active');
-      chatPanel.style.transform = '';
-      chatPanel.style.opacity  = '';
-    }
-  }
-  window.addEventListener('resize', handleSplitResize);
-  handleSplitResize();
-
-  // Wrapper: clicking an impact card loads section AND switches to chat on mobile
-  function splitLoadSection(section) {
-    loadSection(section);
-    if (window.innerWidth <= 768) {
-      splitSwitchTab('chat');
-    }
-  }
-
-  // Sync both theme toggles (mobile nav + desktop header)
-  const _origUpdateThemeIcon = window.updateThemeIcon;
-  window.updateThemeIcon = function(theme) {
-    ['themeToggle', 'themeToggleMobile'].forEach(id => {
-      const el = document.getElementById(id);
-      if (el) el.querySelector('.theme-icon').textContent = theme === 'light' ? '☀️' : '🌙';
-    });
-  };
-</script>
 </body>
 </html>
