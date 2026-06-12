@@ -84,7 +84,7 @@ html {
     text-size-adjust: 100%;
 }
 
-html, body {
+html {
     height: 100%;
     font-family: var(--font-body);
     background: var(--bg);
@@ -95,9 +95,12 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
-    min-height: 100dvh;
-    min-height: -webkit-fill-available;
+    height: 100dvh;
+    height: 100vh;
     overflow: hidden;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
 }
 
 /* ===========================
@@ -1182,38 +1185,24 @@ body {
     /* Hide the floating desktop theme toggle on mobile */
     .chat-panel-header .theme-toggle { display: none; }
 
+    /* On mobile both panels stack full-width; only one shown at a time */
     .resume-panel {
-        position: absolute;
-        top: 0; left: 0; right: 0; bottom: 0;
+        display: none;
         width: 100%;
-        height: 100%;
         border-right: none;
-        transition: transform 0.3s ease, opacity 0.3s ease;
-        z-index: 2;
-        transform: translateX(-100%);
-        opacity: 0;
-        pointer-events: none;
+        flex-shrink: 0;
     }
     .resume-panel.mobile-active {
-        transform: translateX(0);
-        opacity: 1;
-        pointer-events: auto;
+        display: flex;
     }
 
+    /* Chat panel is visible by default on mobile */
     .chat-panel {
-        position: absolute;
-        top: 0; left: 0; right: 0; bottom: 0;
+        display: flex;
         width: 100%;
-        height: 100%;
-        transition: transform 0.3s ease, opacity 0.3s ease;
-        transform: translateX(0);
-        opacity: 1;
-        z-index: 2;
     }
     .chat-panel.mobile-hidden {
-        transform: translateX(100%);
-        opacity: 0;
-        z-index: 1;
+        display: none;
     }
 
     .chat-panel-header { padding: 16px 18px 12px; }
